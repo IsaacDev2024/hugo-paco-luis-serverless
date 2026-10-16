@@ -1,0 +1,21 @@
+metadata:
+  id: CKV2_HPL_1
+  name: "Flex debe usar HTTPS, identidad administrada y despliegue sin Basic Auth"
+  category: GENERAL_SECURITY
+definition:
+  and:
+    - cond_type: attribute
+      resource_types: [azurerm_function_app_flex_consumption]
+      attribute: https_only
+      operator: equals
+      value: true
+    - cond_type: attribute
+      resource_types: [azurerm_function_app_flex_consumption]
+      attribute: storage_authentication_type
+      operator: equals
+      value: UserAssignedIdentity
+    - cond_type: attribute
+      resource_types: [azurerm_function_app_flex_consumption]
+      attribute: webdeploy_publish_basic_authentication_enabled
+      operator: equals
+      value: false
