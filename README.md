@@ -103,13 +103,14 @@ export ARM_SUBSCRIPTION_ID="$(az account show --query id -o tsv)"
 for namespace in Microsoft.Storage Microsoft.Web Microsoft.ManagedIdentity Microsoft.Insights Microsoft.OperationalInsights; do
   az provider register --namespace "$namespace" --wait
 done
+python scripts/prepare_bootstrap.py
 terraform -chdir=bootstrap init -lockfile=readonly
 terraform -chdir=bootstrap plan -out=bootstrap.tfplan
 terraform -chdir=bootstrap apply bootstrap.tfplan
 python scripts/configure_github.py
 ```
 
-El bootstrap confía exclusivamente en `repo:IsaacDev2024/hugo-paco-luis-serverless:ref:refs/heads/main`. Para un fork, cambiar `github_repository` con `-var` tanto en plan como en cualquier operación futura del bootstrap y pasar `--repo propietario/repositorio` al script. Cada suscripción produce un sufijo de nombres estable y distinto. La configuración del laboratorio utiliza `dev`; para agregar ambientes hay que ampliar también bootstrap, permisos y claves de estado.
+El bootstrap confía exclusivamente en el subject de main obtenido de GitHub. Este repositorio usa IDs inmutables: `repo:IsaacDev2024@158796340/hugo-paco-luis-serverless@1421677306:ref:refs/heads/main`. Para un fork, ejecutar ambos scripts de preparación/configuración con `--repo propietario/repositorio` y conservar el archivo local ignorado `bootstrap/github.auto.tfvars.json`. [Formato de OIDC en GitHub](https://docs.github.com/en/actions/reference/security/oidc). Cada suscripción produce un sufijo de nombres estable y distinto. La configuración del laboratorio utiliza `dev`; para agregar ambientes hay que ampliar también bootstrap, permisos y claves de estado.
 
 **Conservar `bootstrap/terraform.tfstate` en un respaldo privado**: permite actualizar y retirar las identidades y el backend. No subir estados, planes, tokens ni `local.settings.json` a GitHub. Las identidades de CI no tienen permisos sobre toda la suscripción: infraestructura puede administrar recursos y RBAC solo en el grupo del taller; aplicación tiene Website Contributor en ese mismo grupo. Solo infraestructura puede leer/escribir el contenedor de estado.
 

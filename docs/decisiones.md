@@ -35,3 +35,7 @@ No se usa soft-fail ni una exclusión global de Azure. Cada comentario `checkov:
 ## Ajuste comprobado de la suscripción
 
 La política sys.regionrestriction de Azure for Students permitió chilecentral, belgiumcentral, francecentral, westus y canadacentral. El primer intento en eastus2 fue rechazado por política (403). Se cambió a canadacentral antes de crear la carga; esto no se resolvió deshabilitando políticas ni controles. En otra suscripción se debe consultar la política y la disponibilidad de Flex.
+
+## Confianza OIDC verificada
+
+GitHub emitió el subject con IDs inmutables y Azure rechazó el subject anterior basado solo en nombres. Se corrigió la federación de ambas identidades para exigir el valor exacto de `sub_claim_prefix` más `:ref:refs/heads/main`. El script prepare_bootstrap consulta el API oficial; no se usan comodines ni se deshabilita el formato inmutable. [Referencia oficial](https://docs.github.com/en/actions/reference/security/oidc).

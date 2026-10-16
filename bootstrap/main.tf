@@ -9,9 +9,13 @@ provider "azurerm" {
   storage_use_azuread             = true
   resource_provider_registrations = "none"
 }
-variable "github_repository" {
+variable "github_oidc_subject" {
   type    = string
-  default = "IsaacDev2024/hugo-paco-luis-serverless"
+  default = "repo:IsaacDev2024@158796340/hugo-paco-luis-serverless@1421677306:ref:refs/heads/main"
+  validation {
+    condition     = endswith(var.github_oidc_subject, ":ref:refs/heads/main") && !strcontains(var.github_oidc_subject, "*")
+    error_message = "La confianza OIDC debe identificar exactamente el repositorio y main."
+  }
 }
 variable "location" {
   type    = string
@@ -83,12 +87,12 @@ resource "azurerm_user_assigned_identity" "github" {
   tags                = local.tags
 }
 resource "azurerm_federated_identity_credential" "github" {
-  for_each  = azurerm_user_assigned_identity.github
-  name      = "github-main"
-  parent_id = each.value.id
-  audience  = ["api://AzureADTokenExchange"]
-  issuer    = "https://token.actions.githubusercontent.com"
-  subject   = "repo:${var.github_repository}:ref:refs/heads/main"
+  for_each                  = azurerm_user_assigned_identity.github
+  name                      = "github-main"
+  user_assigned_identity_id = each.value.id
+  audience                  = ["api://AzureADTokenExchange"]
+  issuer                    = "https://token.actions.githubusercontent.com"
+  subject                   = var.github_oidc_subject
 }
 resource "azurerm_role_assignment" "infra" {
   for_each             = toset(["Contributor", "Role Based Access Control Administrator", "Storage Blob Data Contributor"])
