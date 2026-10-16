@@ -1,0 +1,158 @@
+name: Validación y despliegue del laboratorio
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      force_infra:
+        description: Aplicar infraestructura y publicar aplicación
+        type: boolean
+        default: true
+permissions:
+  contents: read
+concurrency:
+  group: hpl-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    outputs:
+      infra: ${{ steps.changes.outputs.infra }}
+      app: ${{ steps.changes.outputs.app }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.11'
+      - uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4
+        with:
+          terraform_version: '1.16.6'
+          terraform_wrapper: false
+      - name: Distinguir cambios de aplicación, infraestructura y configuración
+        id: changes
+        env:
+          BASE_SHA: ${{ github.event.before || github.event.pull_request.base.sha }}
+        run: python scripts/classify_changes.py
+      - name: Instalar herramientas y dependencias
+        run: python -m pip install -r requirements-dev.txt checkov==3.3.29
+      - name: Pruebas de aplicación
+        run: |
+          mkdir -p evidence/ci
+          python -m pytest -q --junitxml=evidence/ci/tests.xml
+      - name: Terraform fmt, validate y pruebas
+        run: |
+          set -euo pipefail
+          terraform fmt -check -recursive
+          terraform -chdir=infra init -backend=false -input=false -lockfile=readonly
+          terraform -chdir=bootstrap init -input=false -lockfile=readonly
+          terraform -chdir=infra validate -no-color | tee evidence/ci/terraform-validate.txt
+          terraform -chdir=bootstrap validate -no-color | tee evidence/ci/bootstrap-validate.txt
+          terraform -chdir=infra test -no-color | tee evidence/ci/terraform-test.txt
+      - name: Checkov sobre infraestructura y bootstrap
+        run: |
+          set -euo pipefail
+          checkov -d infra --framework terraform --external-checks-dir security/checkov --output cli --compact | tee evidence/ci/checkov-infra.txt
+          checkov -d bootstrap --framework terraform --output cli --compact | tee evidence/ci/checkov-bootstrap.txt
+      - uses: aquasecurity/setup-trivy@81e514348e19b6112ce2a7e3ecbafe19c1e1f567 # v0.3.1
+        with:
+          version: 'v0.76.0'
+          cache: false
+      - name: Trivy sobre archivos, dependencias y secretos
+        run: |
+          set -euo pipefail
+          trivy fs --scanners vuln,secret --severity HIGH,CRITICAL --exit-code 1 --format json --output evidence/ci/trivy.json .
+      - name: Guardar evidencias de validación
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: validacion-${{ github.sha }}
+          path: evidence/ci/
+          retention-days: 30
+  infrastructure:
+    needs: validate
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && (needs.validate.outputs.infra == 'true' || inputs.force_infra)
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      ARM_USE_OIDC: 'true'
+      ARM_USE_AZUREAD: 'true'
+      ARM_CLIENT_ID: ${{ vars.AZURE_INFRA_CLIENT_ID }}
+      ARM_TENANT_ID: ${{ vars.AZURE_TENANT_ID }}
+      ARM_SUBSCRIPTION_ID: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      TF_STATE_ACCOUNT: ${{ vars.TF_STATE_ACCOUNT }}
+      TF_STATE_CONTAINER: ${{ vars.TF_STATE_CONTAINER }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e # v4
+        with:
+          terraform_version: '1.16.6'
+          terraform_wrapper: false
+      - uses: azure/login@935127ca5bb3c4b02c9c2c10060028383878f33f # v3
+        with:
+          client-id: ${{ vars.AZURE_INFRA_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      - name: Aplicar el plan validado
+        run: |
+          set -euo pipefail
+          mkdir -p evidence/ci
+          terraform -chdir=infra init -input=false -lockfile=readonly -backend-config="storage_account_name=$TF_STATE_ACCOUNT" -backend-config="container_name=$TF_STATE_CONTAINER" -backend-config="key=dev.terraform.tfstate" -backend-config="use_azuread_auth=true" -backend-config="use_oidc=true"
+          terraform -chdir=infra plan -input=false -var-file=../config/lab.tfvars -out=deploy.tfplan -no-color | tee evidence/ci/terraform-plan.txt
+          terraform -chdir=infra apply -input=false -no-color deploy.tfplan | tee evidence/ci/terraform-apply.txt
+          terraform -chdir=infra output -json > evidence/ci/outputs.json
+      - name: Guardar evidencia de infraestructura
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: infraestructura-${{ github.sha }}
+          path: evidence/ci/
+          retention-days: 30
+  application:
+    needs: [validate, infrastructure]
+    if: always() && needs.validate.result == 'success' && (needs.infrastructure.result == 'success' || needs.infrastructure.result == 'skipped') && github.ref == 'refs/heads/main' && github.event_name != 'pull_request' && (needs.validate.outputs.app == 'true' || inputs.force_infra)
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      APP_NAME: ${{ vars.AZURE_FUNCTIONAPP_NAME }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.11'
+      - name: Empaquetar la versión de este commit
+        run: python scripts/package.py --commit "$GITHUB_SHA"
+      - uses: azure/login@935127ca5bb3c4b02c9c2c10060028383878f33f # v3
+        with:
+          client-id: ${{ vars.AZURE_APP_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      - name: Publicar con One Deploy y compilación remota
+        uses: Azure/functions-action@c27ade7ab0db7a7005f1ee0c6aed9fae27ca4249 # v1
+        with:
+          app-name: ${{ vars.AZURE_FUNCTIONAPP_NAME }}
+          package: dist/function.zip
+          sku: flexconsumption
+          remote-build: true
+      - name: Verificar versión y respuestas públicas
+        run: |
+          set -euo pipefail
+          BASE_URL="https://$(az functionapp show --resource-group rg-hpl-parcial-dev --name "$APP_NAME" --query defaultHostName -o tsv)"
+          python scripts/smoke.py "$BASE_URL" --commit "$GITHUB_SHA" --output evidence/ci/smoke.json
+          printf '### URL de la aplicación\n%s\n' "$BASE_URL" >> "$GITHUB_STEP_SUMMARY"
+      - name: Guardar evidencia de aplicación
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7
+        with:
+          name: aplicacion-${{ github.sha }}
+          path: evidence/ci/
+          retention-days: 30
