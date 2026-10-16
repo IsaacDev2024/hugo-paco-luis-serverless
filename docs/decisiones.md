@@ -39,3 +39,7 @@ La política sys.regionrestriction de Azure for Students permitió chilecentral,
 ## Confianza OIDC verificada
 
 GitHub emitió el subject con IDs inmutables y Azure rechazó el subject anterior basado solo en nombres. Se corrigió la federación de ambas identidades para exigir el valor exacto de `sub_claim_prefix` más `:ref:refs/heads/main`. El script prepare_bootstrap consulta el API oficial; no se usan comodines ni se deshabilita el formato inmutable. [Referencia oficial](https://docs.github.com/en/actions/reference/security/oidc).
+
+## Corrección reproducible de AzureRM 4.81.0
+
+El proveedor agrega AzureWebJobsStorage con una clave vacía al crear/actualizar Flex incluso cuando el contenedor de despliegue usa identidad. El valor directo tiene prioridad sobre AzureWebJobsStorage__* y provocó AuthenticationFailed al sincronizar el host. terraform_data.identity_storage retira únicamente ese valor mediante Azure CLI después de crear o modificar la Function App (replace_triggered_by); conserva las conexiones de identidad y no habilita shared keys. El comando es idempotente, no imprime valores y requiere la sesión Azure ya disponible en CI. Es un workaround acotado de proveedor; una mejora futura es retirarlo cuando el proveedor gestione nativamente esta combinación sin inyectar la cadena. [Implementación del proveedor](https://github.com/hashicorp/terraform-provider-azurerm/blob/v4.81.0/internal/services/appservice/function_app_flex_consumption_resource.go).

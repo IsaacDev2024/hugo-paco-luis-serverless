@@ -129,3 +129,19 @@ resource "azurerm_monitor_diagnostic_setting" "storage_blob" {
   enabled_log { category = "StorageWrite" }
   enabled_log { category = "StorageDelete" }
 }
+
+# AzureRM 4.81.0 agrega AzureWebJobsStorage con una clave vacía incluso al
+# elegir UserAssignedIdentity. Esa cadena tiene prioridad sobre AzureWebJobsStorage__*.
+# Retirarla después de cada actualización conserva la autenticación por identidad.
+resource "terraform_data" "identity_storage" {
+  lifecycle {
+    replace_triggered_by = [azurerm_function_app_flex_consumption.app]
+  }
+  provisioner "local-exec" {
+    command = "az functionapp config appsettings delete --resource-group \"$HPL_RESOURCE_GROUP\" --name \"$HPL_FUNCTION_APP\" --setting-names AzureWebJobsStorage --output none"
+    environment = {
+      HPL_RESOURCE_GROUP = data.azurerm_resource_group.app.name
+      HPL_FUNCTION_APP   = azurerm_function_app_flex_consumption.app.name
+    }
+  }
+}

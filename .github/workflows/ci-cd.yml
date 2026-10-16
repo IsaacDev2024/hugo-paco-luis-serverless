@@ -146,7 +146,9 @@ jobs:
       - name: Verificar versión y respuestas públicas
         run: |
           set -euo pipefail
-          BASE_URL="https://$(az functionapp show --resource-group rg-hpl-parcial-dev --name "$APP_NAME" --query defaultHostName -o tsv)"
+          HOST_NAME="$(az functionapp show --resource-group rg-hpl-parcial-dev --name "$APP_NAME" --query 'properties.defaultHostName || defaultHostName' -o tsv)"
+          test -n "$HOST_NAME"
+          BASE_URL="https://$HOST_NAME"
           python scripts/smoke.py "$BASE_URL" --commit "$GITHUB_SHA" --output evidence/ci/smoke.json
           printf '### URL de la aplicación\n%s\n' "$BASE_URL" >> "$GITHUB_STEP_SUMMARY"
       - name: Guardar evidencia de aplicación
