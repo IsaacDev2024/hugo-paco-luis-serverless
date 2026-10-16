@@ -1,0 +1,64 @@
+{
+  "SchemaVersion": 2,
+  "Trivy": {
+    "Version": "0.76.0"
+  },
+  "ReportID": "01a1434c-4961-7bc3-b67f-5a23de55d03d",
+  "CreatedAt": "2026-10-16T01:00:35.425771-05:00",
+  "ArtifactName": "contenido completo de la entrega versionada",
+  "ArtifactType": "filesystem",
+  "Results": [
+    {
+      "Target": "app/requirements.txt",
+      "Class": "lang-pkgs",
+      "Type": "pip",
+      "Packages": [
+        {
+          "Name": "MarkupSafe",
+          "Identifier": {
+            "PURL": "pkg:pypi/markupsafe@3.0.4",
+            "UID": "e42d88e978b21535"
+          },
+          "Version": "3.0.4",
+          "Locations": [
+            {
+              "StartLine": 3,
+              "EndLine": 3
+            }
+          ],
+          "AnalyzedBy": "pip"
+        },
+        {
+          "Name": "Werkzeug",
+          "Identifier": {
+            "PURL": "pkg:pypi/werkzeug@3.1.9",
+            "UID": "7463f39f1574cfd6"
+          },
+          "Version": "3.1.9",
+          "Locations": [
+            {
+              "StartLine": 2,
+              "EndLine": 2
+            }
+          ],
+          "AnalyzedBy": "pip"
+        },
+        {
+          "Name": "azure-functions",
+          "Identifier": {
+            "PURL": "pkg:pypi/azure-functions@1.24.0",
+            "UID": "ceac935f7ae825d8"
+          },
+          "Version": "1.24.0",
+          "Locations": [
+            {
+              "StartLine": 1,
+              "EndLine": 1
+            }
+          ],
+          "AnalyzedBy": "pip"
+        }
+      ]
+    }
+  ]
+}

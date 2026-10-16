@@ -43,3 +43,7 @@ GitHub emitió el subject con IDs inmutables y Azure rechazó el subject anterio
 ## Corrección reproducible de AzureRM 4.81.0
 
 El proveedor agrega AzureWebJobsStorage con una clave vacía al crear/actualizar Flex incluso cuando el contenedor de despliegue usa identidad. El valor directo tiene prioridad sobre AzureWebJobsStorage__* y provocó AuthenticationFailed al sincronizar el host. terraform_data.identity_storage retira únicamente ese valor mediante Azure CLI después de crear o modificar la Function App (replace_triggered_by); conserva las conexiones de identidad y no habilita shared keys. El comando es idempotente, no imprime valores y requiere la sesión Azure ya disponible en CI. Es un workaround acotado de proveedor; una mejora futura es retirarlo cuando el proveedor gestione nativamente esta combinación sin inyectar la cadena. [Implementación del proveedor](https://github.com/hashicorp/terraform-provider-azurerm/blob/v4.81.0/internal/services/appservice/function_app_flex_consumption_resource.go).
+
+## Lectura de la URL en Azure CLI
+
+La versión de Azure CLI usada devuelve functionapp show con defaultHostName dentro de properties, mientras list lo expone al primer nivel. El workflow consulta properties.defaultHostName || defaultHostName y exige un hostname no vacío antes de probar. El problema fue detectado por el control de SHA servido: no se aceptó una publicación solo porque One Deploy terminara.

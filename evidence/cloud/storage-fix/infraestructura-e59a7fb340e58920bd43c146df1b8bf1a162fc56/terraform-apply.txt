@@ -1,0 +1,15 @@
+terraform_data.identity_storage: Creating...
+terraform_data.identity_storage: Provisioning with 'local-exec'...
+terraform_data.identity_storage (local-exec): Executing: ["/bin/sh" "-c" "az functionapp config appsettings delete --resource-group \"$HPL_RESOURCE_GROUP\" --name \"$HPL_FUNCTION_APP\" --setting-names AzureWebJobsStorage --output none"]
+terraform_data.identity_storage: Creation complete after 5s [id=6497e4c8-1b98-320d-02c1-13aa288e615d]
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+application_insights_name = "appi-hpl-dev-a7d0f782"
+base_url = "https://func-hpl-dev-a7d0f782.azurewebsites.net"
+function_app_name = "func-hpl-dev-a7d0f782"
+function_url = "https://func-hpl-dev-a7d0f782.azurewebsites.net/api/saludo"
+health_url = "https://func-hpl-dev-a7d0f782.azurewebsites.net/api/health"
+resource_group_name = "rg-hpl-parcial-dev"

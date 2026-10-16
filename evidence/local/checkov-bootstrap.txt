@@ -13,86 +13,86 @@ Passed checks: 11, Failed checks: 0, Skipped checks: 8
 
 Check: CKV_AZURE_244: "Avoid the use of local users for Azure Storage unless necessary"
 	PASSED for resource: azurerm_storage_account.state
-	File: /main.tf:40-65
+	File: /main.tf:44-69
 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/bc-azure-244
 Check: CKV_AZURE_44: "Ensure Storage Account is using the latest version of TLS encryption"
 	PASSED for resource: azurerm_storage_account.state
-	File: /main.tf:40-65
+	File: /main.tf:44-69
 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-storage-policies/bc-azr-storage-2
 Check: CKV_AZURE_36: "Ensure 'Trusted Microsoft Services' is enabled for Storage Account access"
 	PASSED for resource: azurerm_storage_account.state
-	File: /main.tf:40-65
+	File: /main.tf:44-69
 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-networking-policies/enable-trusted-microsoft-services-for-storage-account-access
 Check: CKV_AZURE_3: "Ensure that 'enable_https_traffic_only' is enabled"
 	PASSED for resource: azurerm_storage_account.state
-	File: /main.tf:40-65
+	File: /main.tf:44-69
 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/azr-general-3
 Check: CKV_AZURE_190: "Ensure that Storage blobs restrict public access"
 	PASSED for resource: azurerm_storage_account.state
-	File: /main.tf:40-65
+	File: /main.tf:44-69
 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-networking-policies/azr-networking-190
 Check: CKV_AZURE_34: "Ensure that 'Public access level' is set to Private for blob containers"
 	PASSED for resource: azurerm_storage_container.state
-	File: /main.tf:71-77
+	File: /main.tf:75-81
 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-networking-policies/set-public-access-level-to-private-for-blob-containers
 Check: CKV2_AZURE_41: "Ensure storage account is configured with SAS expiration policy"
 	PASSED for resource: azurerm_storage_account.state
-	File: /main.tf:40-65
+	File: /main.tf:44-69
 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-iam-policies/bc-azure-2-41
 Check: CKV2_AZURE_38: "Ensure soft-delete is enabled on Azure storage account"
 	PASSED for resource: azurerm_storage_account.state
-	File: /main.tf:40-65
+	File: /main.tf:44-69
 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/bc-azure-2-38
 Check: CKV2_AZURE_8: "Ensure the storage container storing the activity logs is not publicly accessible"
 	PASSED for resource: azurerm_storage_container.state
-	File: /main.tf:71-77
+	File: /main.tf:75-81
 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-logging-policies/ensure-the-storage-container-storing-the-activity-logs-is-not-publicly-accessible
 Check: CKV2_AZURE_40: "Ensure storage account is not configured with Shared Key authorization"
 	PASSED for resource: azurerm_storage_account.state
-	File: /main.tf:40-65
+	File: /main.tf:44-69
 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-iam-policies/bc-azure-2-40
 Check: CKV2_AZURE_47: "Ensure storage account is configured without blob anonymous access"
 	PASSED for resource: azurerm_storage_account.state
-	File: /main.tf:40-65
+	File: /main.tf:44-69
 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-iam-policies/bc-azure-2-47
 Check: CKV_AZURE_33: "Ensure Storage logging is enabled for Queue service for read, write and delete requests"
 	SKIPPED for resource: azurerm_storage_account.state
 	Suppress comment: Backend exclusivamente Blob; no se utilizan colas.
-	File: /main.tf:40-65
+	File: /main.tf:44-69
 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-logging-policies/enable-requests-on-storage-logging-for-queue-service
 Check: CKV_AZURE_59: "Ensure that Storage accounts disallow public access"
 	SKIPPED for resource: azurerm_storage_account.state
 	Suppress comment: Sin VNet de laboratorio; no hay blobs públicos ni claves compartidas.
-	File: /main.tf:40-65
+	File: /main.tf:44-69
 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-networking-policies/ensure-that-storage-accounts-disallow-public-access
 Check: CKV_AZURE_43: "Ensure Storage Accounts adhere to the naming rules"
 	SKIPPED for resource: azurerm_storage_account.state
 	Suppress comment: El sufijo sha256 se resuelve en Terraform; nombre validado por Azure y las pruebas.
-	File: /main.tf:40-65
+	File: /main.tf:44-69
 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-storage-policies/ensure-storage-accounts-adhere-to-the-naming-rules
 Check: CKV_AZURE_35: "Ensure default network access rule for Storage Accounts is set to deny"
 	SKIPPED for resource: azurerm_storage_account.state
 	Suppress comment: Runners GitHub requieren endpoint público autenticado con Entra ID.
-	File: /main.tf:40-65
+	File: /main.tf:44-69
 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-networking-policies/set-default-network-access-rule-for-storage-accounts-to-deny
 Check: CKV_AZURE_206: "Ensure that Storage Accounts use replication"
 	SKIPPED for resource: azurerm_storage_account.state
 	Suppress comment: LRS con versionado y recuperación de siete días para estado de laboratorio.
-	File: /main.tf:40-65
+	File: /main.tf:44-69
 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/azr-general-206
 Check: CKV2_AZURE_33: "Ensure storage account is configured with private endpoint"
 	SKIPPED for resource: azurerm_storage_account.state
 	Suppress comment: Endpoint público con Entra ID para laboratorio; sin blobs anónimos.
-	File: /main.tf:40-65
+	File: /main.tf:44-69
 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/bc-azure-2-33
 Check: CKV2_AZURE_1: "Ensure storage for critical data are encrypted with Customer Managed Key"
 	SKIPPED for resource: azurerm_storage_account.state
 	Suppress comment: Cifrado administrado por Microsoft; CMK fuera del alcance académico.
-	File: /main.tf:40-65
+	File: /main.tf:44-69
 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/ensure-storage-for-critical-data-are-encrypted-with-customer-managed-key
 Check: CKV2_AZURE_21: "Ensure Storage logging is enabled for Blob service for read requests"
 	SKIPPED for resource: azurerm_storage_container.state
 	Suppress comment: Backend de laboratorio sin lectura de negocio; historial mediante versionado y logs de CI.
-	File: /main.tf:71-77
+	File: /main.tf:75-81
 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-logging-policies/ensure-storage-logging-is-enabled-for-blob-service-for-read-requests
 

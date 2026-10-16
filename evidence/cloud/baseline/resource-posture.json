@@ -1,0 +1,125 @@
+{
+  "collected_at_utc": "2026-10-16T05:31:00.098748+00:00",
+  "function": {
+    "defaultHostName": "func-hpl-dev-a7d0f782.azurewebsites.net",
+    "httpsOnly": true,
+    "id": "/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Web/sites/func-hpl-dev-a7d0f782",
+    "name": "func-hpl-dev-a7d0f782"
+  },
+  "configuration": {
+    "https_only": true,
+    "runtime": {
+      "name": "python",
+      "version": "3.11"
+    },
+    "scale": {
+      "alwaysReady": null,
+      "instanceMemoryMB": 512,
+      "maximumInstanceCount": 2,
+      "triggers": {
+        "http": {
+          "perInstanceConcurrency": 4
+        }
+      }
+    },
+    "storage_auth": "UserAssignedIdentity",
+    "tags": {
+      "demonstration": "baseline",
+      "environment": "dev",
+      "managed_by": "terraform",
+      "project": "segundo-parcial-taller-4",
+      "team": "Hugo Paco y Luis"
+    }
+  },
+  "storage": [
+    {
+      "allow_public_blobs": false,
+      "allow_shared_key": false,
+      "https_only": true,
+      "name": "sthplappa7d0f782dev",
+      "replication": "Standard_LRS",
+      "tags": {
+        "demonstration": "baseline",
+        "environment": "dev",
+        "managed_by": "terraform",
+        "project": "segundo-parcial-taller-4",
+        "team": "Hugo Paco y Luis"
+      },
+      "tls": "TLS1_2"
+    }
+  ],
+  "resources": [
+    {
+      "location": "canadacentral",
+      "name": "id-runtime-hpl-dev-a7d0f782",
+      "tags": {
+        "demonstration": "baseline",
+        "environment": "dev",
+        "managed_by": "terraform",
+        "project": "segundo-parcial-taller-4",
+        "team": "Hugo Paco y Luis"
+      },
+      "type": "Microsoft.ManagedIdentity/userAssignedIdentities"
+    },
+    {
+      "location": "canadacentral",
+      "name": "sthplappa7d0f782dev",
+      "tags": {
+        "demonstration": "baseline",
+        "environment": "dev",
+        "managed_by": "terraform",
+        "project": "segundo-parcial-taller-4",
+        "team": "Hugo Paco y Luis"
+      },
+      "type": "Microsoft.Storage/storageAccounts"
+    },
+    {
+      "location": "canadacentral",
+      "name": "plan-hpl-dev-a7d0f782",
+      "tags": {
+        "demonstration": "baseline",
+        "environment": "dev",
+        "managed_by": "terraform",
+        "project": "segundo-parcial-taller-4",
+        "team": "Hugo Paco y Luis"
+      },
+      "type": "Microsoft.Web/serverFarms"
+    },
+    {
+      "location": "canadacentral",
+      "name": "log-hpl-dev-a7d0f782",
+      "tags": {
+        "demonstration": "baseline",
+        "environment": "dev",
+        "managed_by": "terraform",
+        "project": "segundo-parcial-taller-4",
+        "team": "Hugo Paco y Luis"
+      },
+      "type": "Microsoft.OperationalInsights/workspaces"
+    },
+    {
+      "location": "canadacentral",
+      "name": "appi-hpl-dev-a7d0f782",
+      "tags": {
+        "demonstration": "baseline",
+        "environment": "dev",
+        "managed_by": "terraform",
+        "project": "segundo-parcial-taller-4",
+        "team": "Hugo Paco y Luis"
+      },
+      "type": "Microsoft.Insights/components"
+    },
+    {
+      "location": "canadacentral",
+      "name": "func-hpl-dev-a7d0f782",
+      "tags": {
+        "demonstration": "baseline",
+        "environment": "dev",
+        "managed_by": "terraform",
+        "project": "segundo-parcial-taller-4",
+        "team": "Hugo Paco y Luis"
+      },
+      "type": "Microsoft.Web/sites"
+    }
+  ]
+}

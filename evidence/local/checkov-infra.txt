@@ -102,14 +102,14 @@ Check: CKV2_AZURE_33: "Ensure storage account is configured with private endpoin
 	Suppress comment: Endpoint público con Entra ID para laboratorio; sin blobs anónimos.
 	File: /main.tf:13-39
 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/bc-azure-2-33
-Check: CKV2_AZURE_1: "Ensure storage for critical data are encrypted with Customer Managed Key"
-	SKIPPED for resource: azurerm_storage_account.app
-	Suppress comment: Cifrado administrado por Microsoft; CMK fuera del alcance académico.
-	File: /main.tf:13-39
-	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/ensure-storage-for-critical-data-are-encrypted-with-customer-managed-key
 Check: CKV2_AZURE_21: "Ensure Storage logging is enabled for Blob service for read requests"
 	SKIPPED for resource: azurerm_storage_container.deployment
 	Suppress comment: Auditoría Blob implementada con Azure Monitor diagnostic_setting StorageRead/Write/Delete; el check exige Storage Insights heredado.
 	File: /main.tf:40-45
 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-logging-policies/ensure-storage-logging-is-enabled-for-blob-service-for-read-requests
+Check: CKV2_AZURE_1: "Ensure storage for critical data are encrypted with Customer Managed Key"
+	SKIPPED for resource: azurerm_storage_account.app
+	Suppress comment: Cifrado administrado por Microsoft; CMK fuera del alcance académico.
+	File: /main.tf:13-39
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/ensure-storage-for-critical-data-are-encrypted-with-customer-managed-key
 

@@ -1,0 +1,51 @@
+{
+  "tables": [
+    {
+      "columns": [
+        {
+          "name": "Name",
+          "type": "string"
+        },
+        {
+          "name": "requests",
+          "type": "long"
+        },
+        {
+          "name": "successful",
+          "type": "long"
+        },
+        {
+          "name": "failed",
+          "type": "long"
+        }
+      ],
+      "name": "PrimaryResult",
+      "rows": [
+        [
+          "greet",
+          5,
+          5,
+          0
+        ],
+        [
+          "home",
+          2,
+          2,
+          0
+        ],
+        [
+          "health",
+          1,
+          1,
+          0
+        ],
+        [
+          "team",
+          1,
+          1,
+          0
+        ]
+      ]
+    }
+  ]
+}

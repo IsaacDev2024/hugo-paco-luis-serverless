@@ -1,9 +1,9 @@
 {
-  "updated_at": "2026-10-16T05:21:07.302542+00:00",
+  "updated_at": "2026-10-16T05:59:39.261738+00:00",
   "repository": "https://github.com/IsaacDev2024/hugo-paco-luis-serverless",
   "workshop": 4,
-  "cloud_deployed": false,
-  "status": "deployment_in_progress",
+  "cloud_deployed": true,
+  "status": "deployed_and_verified",
   "local": {
     "api_tests": 21,
     "terraform_tests": 2,
@@ -24,5 +24,75 @@
     "sorejuela": "invited_write",
     "Code-LuisDiaz": "invited_write"
   },
-  "cloud_evidence": []
+  "cloud_evidence": [
+    {
+      "label": "baseline",
+      "run_id": 38855544201,
+      "url": "https://github.com/IsaacDev2024/hugo-paco-luis-serverless/actions/runs/38855544201",
+      "conclusion": "failure",
+      "note": "Infraestructura aplicada; 8 pruebas HTTP manuales correctas con portal inicial /home. El control original de raíz/lectura del hostname falló y quedó corregido en la entrega."
+    },
+    {
+      "label": "storage-fix",
+      "run_id": 38857748149,
+      "url": "https://github.com/IsaacDev2024/hugo-paco-luis-serverless/actions/runs/38857748149",
+      "conclusion": "success",
+      "version": "1.1.0"
+    },
+    {
+      "label": "app-change",
+      "run_id": 38857931380,
+      "url": "https://github.com/IsaacDev2024/hugo-paco-luis-serverless/actions/runs/38857931380",
+      "conclusion": "success",
+      "version": "1.1.1",
+      "infrastructure": "skipped",
+      "http_checks": 8
+    },
+    {
+      "label": "infra-change",
+      "run_id": 38858201755,
+      "url": "https://github.com/IsaacDev2024/hugo-paco-luis-serverless/actions/runs/38858201755",
+      "conclusion": "success",
+      "http_checks": 8,
+      "change": "demonstration=infra-demo-verified; se vuelve a ejecutar el recurso lógico de configuración tras la actualización de Function App"
+    }
+  ],
+  "base_url": "https://func-hpl-dev-a7d0f782.azurewebsites.net",
+  "portal_url": "https://func-hpl-dev-a7d0f782.azurewebsites.net/",
+  "function_url": "https://func-hpl-dev-a7d0f782.azurewebsites.net/api/saludo",
+  "health_url": "https://func-hpl-dev-a7d0f782.azurewebsites.net/api/health",
+  "deployed_version": "1.1.1",
+  "deployed_commit": "88a747f6b9b8068a309a63fb23e323ab087cfa07",
+  "location": "canadacentral",
+  "destruction_performed": false,
+  "demonstrations": {
+    "application": {
+      "before_version": "1.1.0",
+      "after_version": "1.1.1",
+      "source_file": "app/function_app.py",
+      "automatic_deployment": true,
+      "terraform_skipped": true
+    },
+    "infrastructure": {
+      "tag": "demonstration",
+      "before": "infra-demo-applied",
+      "after": "infra-demo-verified",
+      "automatic_plan_apply": true,
+      "azure_resources_recreated": false,
+      "logical_configuration_resource_reexecuted": true
+    },
+    "public_security_posture": {
+      "legacy_storage_connection_present": false,
+      "storage_shared_keys_enabled": false,
+      "storage_public_blobs_enabled": false,
+      "https_only": true,
+      "maximum_instances": 2,
+      "memory_mb": 512
+    }
+  },
+  "contributors": [
+    "IsaacDev2024",
+    "sorejuela",
+    "Code-LuisDiaz"
+  ]
 }

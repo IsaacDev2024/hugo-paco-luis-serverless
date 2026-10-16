@@ -1,0 +1,82 @@
+{
+  "SchemaVersion": 2,
+  "Trivy": {
+    "Version": "0.76.0"
+  },
+  "ReportID": "01a1433b-9a3f-70ad-a2e1-715ff1840543",
+  "CreatedAt": "2026-10-16T05:42:22.015045343Z",
+  "ArtifactID": "sha256:8926b1a9a256ecdf6c2bc38f5f3a55de16f10c3b7a403bbe0b0b7d5ead7a42ae",
+  "ArtifactName": ".",
+  "ArtifactType": "repository",
+  "Metadata": {
+    "RepoURL": "https://github.com/IsaacDev2024/hugo-paco-luis-serverless",
+    "Branch": "main",
+    "Commit": "b3ba2b7d2374494ccf94d1ddb12591d249b35d9a",
+    "CommitMsg": "infra: actualizar etiquetas del laboratorio\n\nCo-authored-by: Isaac David Sánchez Sánchez \u003c158796340+IsaacDev2024@users.noreply.github.com\u003e\nCo-authored-by: Luis Mario Díaz Martínez \u003c183259955+Code-LuisDiaz@users.noreply.github.com\u003e",
+    "Author": "Santiago Andrés Orejuela Cueter \u003c178396316+sorejuela@users.noreply.github.com\u003e",
+    "Committer": "Isaac David Sánchez Sánchez \u003c158796340+IsaacDev2024@users.noreply.github.com\u003e"
+  },
+  "Results": [
+    {
+      "Target": "app/requirements.txt",
+      "Class": "lang-pkgs",
+      "Type": "pip",
+      "Packages": [
+        {
+          "Name": "MarkupSafe",
+          "Identifier": {
+            "PURL": "pkg:pypi/markupsafe@3.0.4",
+            "UID": "e83075262a524f9d"
+          },
+          "Version": "3.0.4",
+          "Licenses": [
+            "BSD-3-Clause"
+          ],
+          "Locations": [
+            {
+              "StartLine": 3,
+              "EndLine": 3
+            }
+          ],
+          "AnalyzedBy": "pip"
+        },
+        {
+          "Name": "Werkzeug",
+          "Identifier": {
+            "PURL": "pkg:pypi/werkzeug@3.1.9",
+            "UID": "93e78b6a3716fbc1"
+          },
+          "Version": "3.1.9",
+          "Licenses": [
+            "BSD-3-Clause"
+          ],
+          "Locations": [
+            {
+              "StartLine": 2,
+              "EndLine": 2
+            }
+          ],
+          "AnalyzedBy": "pip"
+        },
+        {
+          "Name": "azure-functions",
+          "Identifier": {
+            "PURL": "pkg:pypi/azure-functions@1.24.0",
+            "UID": "593749f4161feb25"
+          },
+          "Version": "1.24.0",
+          "Licenses": [
+            "MIT"
+          ],
+          "Locations": [
+            {
+              "StartLine": 1,
+              "EndLine": 1
+            }
+          ],
+          "AnalyzedBy": "pip"
+        }
+      ]
+    }
+  ]
+}

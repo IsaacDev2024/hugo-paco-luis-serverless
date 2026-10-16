@@ -1,0 +1,125 @@
+Acquiring state lock. This may take a few moments...
+data.azurerm_client_config.current: Reading...
+data.azurerm_resource_group.app: Reading...
+data.azurerm_client_config.current: Read complete after 0s [id=Y2xpZW50Q29uZmlncy9jbGllbnRJZD1kZDM2MTUzMy0yMjU1LTQwOTQtYTUzZS0wNDBkNjEyMWE0YjY7b2JqZWN0SWQ9Nzk2YzBlMGItMWZhMS00MDRmLWI1N2QtMzE2MzU2ZTIyZjZhO3N1YnNjcmlwdGlvbklkPWNjNWY5ZjVmLTc4YjMtNDE2Zi1hZGFkLTZhMmYyN2Q4N2E4Mzt0ZW5hbnRJZD1lYTY0OWU1MC0yN2QyLTQzMTgtOWNiOS0yZmNmZmUxNmZkNDE=]
+data.azurerm_resource_group.app: Read complete after 1s [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev]
+azurerm_service_plan.app: Refreshing state... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Web/serverFarms/plan-hpl-dev-a7d0f782]
+azurerm_log_analytics_workspace.app: Refreshing state... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.OperationalInsights/workspaces/log-hpl-dev-a7d0f782]
+azurerm_user_assigned_identity.runtime: Refreshing state... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-runtime-hpl-dev-a7d0f782]
+azurerm_storage_account.app: Refreshing state... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Storage/storageAccounts/sthplappa7d0f782dev]
+azurerm_application_insights.app: Refreshing state... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Insights/components/appi-hpl-dev-a7d0f782]
+azurerm_storage_container.deployment: Refreshing state... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Storage/storageAccounts/sthplappa7d0f782dev/blobServices/default/containers/function-releases]
+azurerm_role_assignment.runtime_blob: Refreshing state... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Storage/storageAccounts/sthplappa7d0f782dev/providers/Microsoft.Authorization/roleAssignments/ac2b28e3-70b8-caaf-585d-77131f9654eb]
+azurerm_monitor_diagnostic_setting.storage_blob: Refreshing state... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Storage/storageAccounts/sthplappa7d0f782dev/blobServices/default|blob-audit]
+azurerm_function_app_flex_consumption.app: Refreshing state... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Web/sites/func-hpl-dev-a7d0f782]
+terraform_data.identity_storage: Refreshing state... [id=6497e4c8-1b98-320d-02c1-13aa288e615d]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  ~ update in-place
+-/+ destroy and then create replacement
+
+Terraform will perform the following actions:
+
+  # azurerm_application_insights.app will be updated in-place
+  ~ resource "azurerm_application_insights" "app" {
+        id                                    = "/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Insights/components/appi-hpl-dev-a7d0f782"
+        name                                  = "appi-hpl-dev-a7d0f782"
+      ~ tags                                  = {
+          ~ "demonstration" = "infra-demo-applied" -> "infra-demo-verified"
+            "environment"   = "dev"
+            "managed_by"    = "terraform"
+            "project"       = "segundo-parcial-taller-4"
+            "team"          = "Hugo Paco y Luis"
+        }
+        # (19 unchanged attributes hidden)
+    }
+
+  # azurerm_function_app_flex_consumption.app will be updated in-place
+  ~ resource "azurerm_function_app_flex_consumption" "app" {
+        id                                             = "/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Web/sites/func-hpl-dev-a7d0f782"
+        name                                           = "func-hpl-dev-a7d0f782"
+      ~ tags                                           = {
+          ~ "demonstration" = "infra-demo-applied" -> "infra-demo-verified"
+            "environment"   = "dev"
+            "managed_by"    = "terraform"
+            "project"       = "segundo-parcial-taller-4"
+            "team"          = "Hugo Paco y Luis"
+        }
+        # (32 unchanged attributes hidden)
+
+        # (3 unchanged blocks hidden)
+    }
+
+  # azurerm_log_analytics_workspace.app will be updated in-place
+  ~ resource "azurerm_log_analytics_workspace" "app" {
+        id                                      = "/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.OperationalInsights/workspaces/log-hpl-dev-a7d0f782"
+        name                                    = "log-hpl-dev-a7d0f782"
+      ~ tags                                    = {
+          ~ "demonstration" = "infra-demo-applied" -> "infra-demo-verified"
+            "environment"   = "dev"
+            "managed_by"    = "terraform"
+            "project"       = "segundo-parcial-taller-4"
+            "team"          = "Hugo Paco y Luis"
+        }
+        # (16 unchanged attributes hidden)
+    }
+
+  # azurerm_service_plan.app will be updated in-place
+  ~ resource "azurerm_service_plan" "app" {
+        id                              = "/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Web/serverFarms/plan-hpl-dev-a7d0f782"
+        name                            = "plan-hpl-dev-a7d0f782"
+      ~ tags                            = {
+          ~ "demonstration" = "infra-demo-applied" -> "infra-demo-verified"
+            "environment"   = "dev"
+            "managed_by"    = "terraform"
+            "project"       = "segundo-parcial-taller-4"
+            "team"          = "Hugo Paco y Luis"
+        }
+        # (12 unchanged attributes hidden)
+    }
+
+  # azurerm_storage_account.app will be updated in-place
+  ~ resource "azurerm_storage_account" "app" {
+        id                                 = "/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Storage/storageAccounts/sthplappa7d0f782dev"
+        name                               = "sthplappa7d0f782dev"
+      ~ tags                               = {
+          ~ "demonstration" = "infra-demo-applied" -> "infra-demo-verified"
+            "environment"   = "dev"
+            "managed_by"    = "terraform"
+            "project"       = "segundo-parcial-taller-4"
+            "team"          = "Hugo Paco y Luis"
+        }
+        # (97 unchanged attributes hidden)
+
+        # (3 unchanged blocks hidden)
+    }
+
+  # azurerm_user_assigned_identity.runtime will be updated in-place
+  ~ resource "azurerm_user_assigned_identity" "runtime" {
+        id                  = "/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-runtime-hpl-dev-a7d0f782"
+        name                = "id-runtime-hpl-dev-a7d0f782"
+      ~ tags                = {
+          ~ "demonstration" = "infra-demo-applied" -> "infra-demo-verified"
+            "environment"   = "dev"
+            "managed_by"    = "terraform"
+            "project"       = "segundo-parcial-taller-4"
+            "team"          = "Hugo Paco y Luis"
+        }
+        # (6 unchanged attributes hidden)
+    }
+
+  # terraform_data.identity_storage will be replaced due to changes in replace_triggered_by
+-/+ resource "terraform_data" "identity_storage" {
+      ~ id = "6497e4c8-1b98-320d-02c1-13aa288e615d" -> (known after apply)
+    }
+
+Plan: 1 to add, 6 to change, 1 to destroy.
+
+─────────────────────────────────────────────────────────────────────────────
+
+Saved the plan to: deploy.tfplan
+
+To perform exactly these actions, run the following command to apply:
+    terraform apply "deploy.tfplan"
+Releasing state lock. This may take a few moments...

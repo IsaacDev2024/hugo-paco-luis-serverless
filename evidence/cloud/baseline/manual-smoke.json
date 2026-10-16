@@ -1,0 +1,46 @@
+{
+  "tested_at_utc": "2026-10-16T05:36:25Z",
+  "base_url": "https://func-hpl-dev-a7d0f782.azurewebsites.net",
+  "passed": true,
+  "checks": [
+    {
+      "endpoint": "/api/health",
+      "status": 200,
+      "response": {
+        "status": "ok",
+        "team": "Hugo, Paco y Luis",
+        "version": "1.0.0",
+        "commit": "faaee67a6884a6f0e29075d2df9865db228bf47a",
+        "environment": "dev"
+      }
+    },
+    {
+      "endpoint": "/api/saludo?personaje=hugo",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/saludo?personaje=paco",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/saludo?personaje=luis",
+      "status": 200
+    },
+    {
+      "endpoint": "POST /api/saludo (texto)",
+      "status": 200
+    },
+    {
+      "endpoint": "/api/saludo inválido",
+      "status": 400
+    },
+    {
+      "endpoint": "/api/equipo",
+      "status": 200
+    },
+    {
+      "endpoint": "/home",
+      "status": 200
+    }
+  ]
+}

@@ -1,0 +1,338 @@
+{
+  "conclusion": "failure",
+  "databaseId": 38855544201,
+  "headSha": "faaee67a6884a6f0e29075d2df9865db228bf47a",
+  "jobs": [
+    {
+      "completedAt": "2026-10-16T05:31:03Z",
+      "conclusion": "success",
+      "databaseId": 116827223711,
+      "name": "infrastructure",
+      "startedAt": "2026-10-16T05:28:02Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-16T05:28:04Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-16T05:28:03Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:28:04Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "number": 2,
+          "startedAt": "2026-10-16T05:28:04Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:28:06Z",
+          "conclusion": "success",
+          "name": "Run hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e",
+          "number": 3,
+          "startedAt": "2026-10-16T05:28:04Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:28:09Z",
+          "conclusion": "success",
+          "name": "Run azure/login@935127ca5bb3c4b02c9c2c10060028383878f33f",
+          "number": 4,
+          "startedAt": "2026-10-16T05:28:06Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:31:00Z",
+          "conclusion": "success",
+          "name": "Aplicar el plan validado",
+          "number": 5,
+          "startedAt": "2026-10-16T05:28:09Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:31:01Z",
+          "conclusion": "success",
+          "name": "Guardar evidencia de infraestructura",
+          "number": 6,
+          "startedAt": "2026-10-16T05:31:00Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:31:02Z",
+          "conclusion": "success",
+          "name": "Post Run azure/login@935127ca5bb3c4b02c9c2c10060028383878f33f",
+          "number": 11,
+          "startedAt": "2026-10-16T05:31:01Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:31:02Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "number": 12,
+          "startedAt": "2026-10-16T05:31:02Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:31:02Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 13,
+          "startedAt": "2026-10-16T05:31:02Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/IsaacDev2024/hugo-paco-luis-serverless/actions/runs/38855544201/job/116827223711"
+    },
+    {
+      "completedAt": "2026-10-16T05:24:45Z",
+      "conclusion": "success",
+      "databaseId": 116827224643,
+      "name": "validate",
+      "startedAt": "2026-10-16T05:23:45Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-16T05:23:50Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-16T05:23:45Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:23:51Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "number": 2,
+          "startedAt": "2026-10-16T05:23:50Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:23:52Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1",
+          "number": 3,
+          "startedAt": "2026-10-16T05:23:51Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:23:53Z",
+          "conclusion": "success",
+          "name": "Run hashicorp/setup-terraform@dfe3c3f87815947d99a8997f908cb6525fc44e9e",
+          "number": 4,
+          "startedAt": "2026-10-16T05:23:52Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:23:53Z",
+          "conclusion": "success",
+          "name": "Distinguir cambios de aplicación, infraestructura y configuración",
+          "number": 5,
+          "startedAt": "2026-10-16T05:23:53Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:24:16Z",
+          "conclusion": "success",
+          "name": "Instalar herramientas y dependencias",
+          "number": 6,
+          "startedAt": "2026-10-16T05:23:53Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:24:17Z",
+          "conclusion": "success",
+          "name": "Pruebas de aplicación",
+          "number": 7,
+          "startedAt": "2026-10-16T05:24:16Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:24:23Z",
+          "conclusion": "success",
+          "name": "Terraform fmt, validate y pruebas",
+          "number": 8,
+          "startedAt": "2026-10-16T05:24:17Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:24:31Z",
+          "conclusion": "success",
+          "name": "Checkov sobre infraestructura y bootstrap",
+          "number": 9,
+          "startedAt": "2026-10-16T05:24:23Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:24:35Z",
+          "conclusion": "success",
+          "name": "Run aquasecurity/setup-trivy@81e514348e19b6112ce2a7e3ecbafe19c1e1f567",
+          "number": 10,
+          "startedAt": "2026-10-16T05:24:31Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:24:40Z",
+          "conclusion": "success",
+          "name": "Trivy sobre archivos, dependencias y secretos",
+          "number": 11,
+          "startedAt": "2026-10-16T05:24:35Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:24:41Z",
+          "conclusion": "success",
+          "name": "Guardar evidencias de validación",
+          "number": 12,
+          "startedAt": "2026-10-16T05:24:40Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:24:41Z",
+          "conclusion": "success",
+          "name": "Post Run aquasecurity/setup-trivy@81e514348e19b6112ce2a7e3ecbafe19c1e1f567",
+          "number": 22,
+          "startedAt": "2026-10-16T05:24:41Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:24:41Z",
+          "conclusion": "success",
+          "name": "Post Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1",
+          "number": 23,
+          "startedAt": "2026-10-16T05:24:41Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:24:43Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "number": 24,
+          "startedAt": "2026-10-16T05:24:41Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:24:43Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 25,
+          "startedAt": "2026-10-16T05:24:43Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/IsaacDev2024/hugo-paco-luis-serverless/actions/runs/38855544201/job/116827224643"
+    },
+    {
+      "completedAt": "2026-10-16T05:34:56Z",
+      "conclusion": "failure",
+      "databaseId": 116828062284,
+      "name": "application",
+      "startedAt": "2026-10-16T05:31:06Z",
+      "status": "completed",
+      "steps": [
+        {
+          "completedAt": "2026-10-16T05:31:34Z",
+          "conclusion": "success",
+          "name": "Set up job",
+          "number": 1,
+          "startedAt": "2026-10-16T05:31:07Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:31:35Z",
+          "conclusion": "success",
+          "name": "Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "number": 2,
+          "startedAt": "2026-10-16T05:31:34Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:31:35Z",
+          "conclusion": "success",
+          "name": "Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1",
+          "number": 3,
+          "startedAt": "2026-10-16T05:31:35Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:31:35Z",
+          "conclusion": "success",
+          "name": "Empaquetar la versión de este commit",
+          "number": 4,
+          "startedAt": "2026-10-16T05:31:35Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:31:38Z",
+          "conclusion": "success",
+          "name": "Run azure/login@935127ca5bb3c4b02c9c2c10060028383878f33f",
+          "number": 5,
+          "startedAt": "2026-10-16T05:31:35Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:32:59Z",
+          "conclusion": "success",
+          "name": "Publicar con One Deploy y compilación remota",
+          "number": 6,
+          "startedAt": "2026-10-16T05:31:38Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:34:53Z",
+          "conclusion": "failure",
+          "name": "Verificar versión y respuestas públicas",
+          "number": 7,
+          "startedAt": "2026-10-16T05:32:59Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:34:53Z",
+          "conclusion": "success",
+          "name": "Guardar evidencia de aplicación",
+          "number": 8,
+          "startedAt": "2026-10-16T05:34:53Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:34:54Z",
+          "conclusion": "success",
+          "name": "Post Run azure/login@935127ca5bb3c4b02c9c2c10060028383878f33f",
+          "number": 14,
+          "startedAt": "2026-10-16T05:34:53Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:34:54Z",
+          "conclusion": "skipped",
+          "name": "Post Run actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1",
+          "number": 15,
+          "startedAt": "2026-10-16T05:34:54Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:34:54Z",
+          "conclusion": "success",
+          "name": "Post Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803",
+          "number": 16,
+          "startedAt": "2026-10-16T05:34:54Z",
+          "status": "completed"
+        },
+        {
+          "completedAt": "2026-10-16T05:34:54Z",
+          "conclusion": "success",
+          "name": "Complete job",
+          "number": 17,
+          "startedAt": "2026-10-16T05:34:54Z",
+          "status": "completed"
+        }
+      ],
+      "url": "https://github.com/IsaacDev2024/hugo-paco-luis-serverless/actions/runs/38855544201/job/116828062284"
+    }
+  ],
+  "status": "completed",
+  "url": "https://github.com/IsaacDev2024/hugo-paco-luis-serverless/actions/runs/38855544201"
+}

@@ -1,0 +1,51 @@
+Acquiring state lock. This may take a few moments...
+azurerm_user_assigned_identity.runtime: Creating...
+azurerm_service_plan.app: Creating...
+azurerm_log_analytics_workspace.app: Creating...
+azurerm_storage_account.app: Creating...
+azurerm_user_assigned_identity.runtime: Creation complete after 3s [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-runtime-hpl-dev-a7d0f782]
+azurerm_log_analytics_workspace.app: Still creating... [00m10s elapsed]
+azurerm_service_plan.app: Still creating... [00m10s elapsed]
+azurerm_storage_account.app: Still creating... [00m10s elapsed]
+azurerm_service_plan.app: Creation complete after 14s [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Web/serverFarms/plan-hpl-dev-a7d0f782]
+azurerm_log_analytics_workspace.app: Still creating... [00m20s elapsed]
+azurerm_storage_account.app: Still creating... [00m20s elapsed]
+azurerm_log_analytics_workspace.app: Still creating... [00m30s elapsed]
+azurerm_storage_account.app: Still creating... [00m30s elapsed]
+azurerm_log_analytics_workspace.app: Still creating... [00m40s elapsed]
+azurerm_storage_account.app: Still creating... [00m40s elapsed]
+azurerm_log_analytics_workspace.app: Creation complete after 44s [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.OperationalInsights/workspaces/log-hpl-dev-a7d0f782]
+azurerm_application_insights.app: Creating...
+azurerm_application_insights.app: Creation complete after 4s [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Insights/components/appi-hpl-dev-a7d0f782]
+azurerm_storage_account.app: Still creating... [00m50s elapsed]
+azurerm_storage_account.app: Still creating... [01m00s elapsed]
+azurerm_storage_account.app: Still creating... [01m10s elapsed]
+azurerm_storage_account.app: Creation complete after 1m15s [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Storage/storageAccounts/sthplappa7d0f782dev]
+azurerm_role_assignment.runtime_blob: Creating...
+azurerm_storage_container.deployment: Creating...
+azurerm_monitor_diagnostic_setting.storage_blob: Creating...
+azurerm_role_assignment.runtime_blob: Still creating... [00m10s elapsed]
+azurerm_storage_container.deployment: Still creating... [00m10s elapsed]
+azurerm_monitor_diagnostic_setting.storage_blob: Still creating... [00m10s elapsed]
+azurerm_storage_container.deployment: Creation complete after 12s [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Storage/storageAccounts/sthplappa7d0f782dev/blobServices/default/containers/function-releases]
+azurerm_monitor_diagnostic_setting.storage_blob: Creation complete after 15s [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Storage/storageAccounts/sthplappa7d0f782dev/blobServices/default|blob-audit]
+azurerm_role_assignment.runtime_blob: Still creating... [00m20s elapsed]
+azurerm_role_assignment.runtime_blob: Creation complete after 26s [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Storage/storageAccounts/sthplappa7d0f782dev/providers/Microsoft.Authorization/roleAssignments/ac2b28e3-70b8-caaf-585d-77131f9654eb]
+azurerm_function_app_flex_consumption.app: Creating...
+azurerm_function_app_flex_consumption.app: Still creating... [00m10s elapsed]
+azurerm_function_app_flex_consumption.app: Still creating... [00m20s elapsed]
+azurerm_function_app_flex_consumption.app: Still creating... [00m30s elapsed]
+azurerm_function_app_flex_consumption.app: Still creating... [00m40s elapsed]
+azurerm_function_app_flex_consumption.app: Creation complete after 47s [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Web/sites/func-hpl-dev-a7d0f782]
+Releasing state lock. This may take a few moments...
+
+Apply complete! Resources: 9 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+application_insights_name = "appi-hpl-dev-a7d0f782"
+base_url = "https://func-hpl-dev-a7d0f782.azurewebsites.net"
+function_app_name = "func-hpl-dev-a7d0f782"
+function_url = "https://func-hpl-dev-a7d0f782.azurewebsites.net/api/saludo"
+health_url = "https://func-hpl-dev-a7d0f782.azurewebsites.net/api/health"
+resource_group_name = "rg-hpl-parcial-dev"

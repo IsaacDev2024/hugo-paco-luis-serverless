@@ -1,0 +1,21 @@
+data.azurerm_client_config.current: Reading...
+azurerm_resource_group.state: Refreshing state... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-terraform-state]
+azurerm_resource_group.app: Refreshing state... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev]
+data.azurerm_client_config.current: Read complete after 0s [id=Y2xpZW50Q29uZmlncy9jbGllbnRJZD0wNGIwNzc5NS04ZGRiLTQ2MWEtYmJlZS0wMmY5ZTFiZjdiNDY7b2JqZWN0SWQ9ZDA1MGFkZWUtNzA4Ni00NzEyLWJhNWEtZTYyOTg1NjhjYmZjO3N1YnNjcmlwdGlvbklkPWNjNWY5ZjVmLTc4YjMtNDE2Zi1hZGFkLTZhMmYyN2Q4N2E4Mzt0ZW5hbnRJZD1lYTY0OWU1MC0yN2QyLTQzMTgtOWNiOS0yZmNmZmUxNmZkNDE=]
+azurerm_user_assigned_identity.github["infra"]: Refreshing state... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-terraform-state/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-github-infra-hpl]
+azurerm_user_assigned_identity.github["app"]: Refreshing state... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-terraform-state/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-github-app-hpl]
+azurerm_storage_account.state: Refreshing state... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-terraform-state/providers/Microsoft.Storage/storageAccounts/sthplstatea7d0f782]
+azurerm_federated_identity_credential.github["infra"]: Refreshing state... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-terraform-state/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-github-infra-hpl/federatedIdentityCredentials/github-main]
+azurerm_role_assignment.infra["Contributor"]: Refreshing state... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Authorization/roleAssignments/2eda005d-a584-0302-fe4b-a35efa67897c]
+azurerm_federated_identity_credential.github["app"]: Refreshing state... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-terraform-state/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-github-app-hpl/federatedIdentityCredentials/github-main]
+azurerm_role_assignment.app: Refreshing state... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Authorization/roleAssignments/c138ea54-3c1c-1e2f-a6df-86dee9923a30]
+azurerm_role_assignment.infra["Role Based Access Control Administrator"]: Refreshing state... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Authorization/roleAssignments/e874cc14-854f-0ec3-a488-0dcd45a85c92]
+azurerm_role_assignment.infra["Storage Blob Data Contributor"]: Refreshing state... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Authorization/roleAssignments/1804801e-38ff-d341-0de6-be0da994521d]
+azurerm_role_assignment.operator_state: Refreshing state... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-terraform-state/providers/Microsoft.Storage/storageAccounts/sthplstatea7d0f782/providers/Microsoft.Authorization/roleAssignments/9a2de129-18a5-2af2-b078-6afa06c42d62]
+azurerm_storage_container.state: Refreshing state... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-terraform-state/providers/Microsoft.Storage/storageAccounts/sthplstatea7d0f782/blobServices/default/containers/tfstate]
+azurerm_role_assignment.state: Refreshing state... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-terraform-state/providers/Microsoft.Storage/storageAccounts/sthplstatea7d0f782/blobServices/default/containers/tfstate/providers/Microsoft.Authorization/roleAssignments/4378e7ff-c40c-4a6b-896d-40b7b77b9ee3]
+
+No changes. Your infrastructure matches the configuration.
+
+Terraform has compared your real infrastructure against your configuration
+and found no differences, so no changes are needed.

@@ -1,0 +1,115 @@
+
+       _               _
+   ___| |__   ___  ___| | _______   __
+  / __| '_ \ / _ \/ __| |/ / _ \ \ / /
+ | (__| | | |  __/ (__|   < (_) \ V /
+  \___|_| |_|\___|\___|_|\_\___/ \_/
+
+By Prisma Cloud | version: 3.3.29 
+
+terraform scan results:
+
+Passed checks: 13, Failed checks: 0, Skipped checks: 10
+
+Check: CKV_AZURE_36: "Ensure 'Trusted Microsoft Services' is enabled for Storage Account access"
+	PASSED for resource: azurerm_storage_account.app
+	File: /main.tf:13-39
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-networking-policies/enable-trusted-microsoft-services-for-storage-account-access
+Check: CKV_AZURE_244: "Avoid the use of local users for Azure Storage unless necessary"
+	PASSED for resource: azurerm_storage_account.app
+	File: /main.tf:13-39
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/bc-azure-244
+Check: CKV_AZURE_44: "Ensure Storage Account is using the latest version of TLS encryption"
+	PASSED for resource: azurerm_storage_account.app
+	File: /main.tf:13-39
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-storage-policies/bc-azr-storage-2
+Check: CKV_AZURE_3: "Ensure that 'enable_https_traffic_only' is enabled"
+	PASSED for resource: azurerm_storage_account.app
+	File: /main.tf:13-39
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/azr-general-3
+Check: CKV_AZURE_190: "Ensure that Storage blobs restrict public access"
+	PASSED for resource: azurerm_storage_account.app
+	File: /main.tf:13-39
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-networking-policies/azr-networking-190
+Check: CKV_AZURE_34: "Ensure that 'Public access level' is set to Private for blob containers"
+	PASSED for resource: azurerm_storage_container.deployment
+	File: /main.tf:40-45
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-networking-policies/set-public-access-level-to-private-for-blob-containers
+Check: CKV_AZURE_211: "Ensure App Service plan suitable for production use"
+	PASSED for resource: azurerm_service_plan.app
+	File: /main.tf:76-85
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/azr-general-211
+Check: CKV2_AZURE_41: "Ensure storage account is configured with SAS expiration policy"
+	PASSED for resource: azurerm_storage_account.app
+	File: /main.tf:13-39
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-iam-policies/bc-azure-2-41
+Check: CKV2_AZURE_47: "Ensure storage account is configured without blob anonymous access"
+	PASSED for resource: azurerm_storage_account.app
+	File: /main.tf:13-39
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-iam-policies/bc-azure-2-47
+Check: CKV2_AZURE_40: "Ensure storage account is not configured with Shared Key authorization"
+	PASSED for resource: azurerm_storage_account.app
+	File: /main.tf:13-39
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-iam-policies/bc-azure-2-40
+Check: CKV2_AZURE_38: "Ensure soft-delete is enabled on Azure storage account"
+	PASSED for resource: azurerm_storage_account.app
+	File: /main.tf:13-39
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/bc-azure-2-38
+Check: CKV2_AZURE_8: "Ensure the storage container storing the activity logs is not publicly accessible"
+	PASSED for resource: azurerm_storage_container.deployment
+	File: /main.tf:40-45
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-logging-policies/ensure-the-storage-container-storing-the-activity-logs-is-not-publicly-accessible
+Check: CKV2_HPL_1: "Flex debe usar HTTPS, identidad administrada y despliegue sin Basic Auth"
+	PASSED for resource: azurerm_function_app_flex_consumption.app
+	File: /main.tf:86-122
+Check: CKV_AZURE_33: "Ensure Storage logging is enabled for Queue service for read, write and delete requests"
+	SKIPPED for resource: azurerm_storage_account.app
+	Suppress comment: HTTP solamente; no hay colas de negocio. Telemetría en Application Insights.
+	File: /main.tf:13-39
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-logging-policies/enable-requests-on-storage-logging-for-queue-service
+Check: CKV_AZURE_59: "Ensure that Storage accounts disallow public access"
+	SKIPPED for resource: azurerm_storage_account.app
+	Suppress comment: Red pública autenticada; blobs privados y claves compartidas deshabilitadas.
+	File: /main.tf:13-39
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-networking-policies/ensure-that-storage-accounts-disallow-public-access
+Check: CKV_AZURE_206: "Ensure that Storage Accounts use replication"
+	SKIPPED for resource: azurerm_storage_account.app
+	Suppress comment: LRS es una decisión de costo de laboratorio, no una promesa de recuperación regional.
+	File: /main.tf:13-39
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/azr-general-206
+Check: CKV_AZURE_35: "Ensure default network access rule for Storage Accounts is set to deny"
+	SKIPPED for resource: azurerm_storage_account.app
+	Suppress comment: Red pública autenticada requerida por runners GitHub y Functions sin VNet en este laboratorio.
+	File: /main.tf:13-39
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-networking-policies/set-default-network-access-rule-for-storage-accounts-to-deny
+Check: CKV_AZURE_43: "Ensure Storage Accounts adhere to the naming rules"
+	SKIPPED for resource: azurerm_storage_account.app
+	Suppress comment: El sufijo sha256 se resuelve en Terraform; nombre validado por Azure y las pruebas.
+	File: /main.tf:13-39
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-storage-policies/ensure-storage-accounts-adhere-to-the-naming-rules
+Check: CKV_AZURE_225: "Ensure the App Service Plan is zone redundant"
+	SKIPPED for resource: azurerm_service_plan.app
+	Suppress comment: Flex bajo demanda sin instancias always-ready; redundancia zonal no requerida en laboratorio.
+	File: /main.tf:76-85
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-storage-policies/bc-azure-225
+Check: CKV_AZURE_212: "Ensure App Service has a minimum number of instances for failover"
+	SKIPPED for resource: azurerm_service_plan.app
+	Suppress comment: Flex escala a cero; mantener instancias fijas altera el objetivo y el costo.
+	File: /main.tf:76-85
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/azr-general-212
+Check: CKV2_AZURE_33: "Ensure storage account is configured with private endpoint"
+	SKIPPED for resource: azurerm_storage_account.app
+	Suppress comment: Endpoint público con Entra ID para laboratorio; sin blobs anónimos.
+	File: /main.tf:13-39
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/bc-azure-2-33
+Check: CKV2_AZURE_21: "Ensure Storage logging is enabled for Blob service for read requests"
+	SKIPPED for resource: azurerm_storage_container.deployment
+	Suppress comment: Auditoría Blob implementada con Azure Monitor diagnostic_setting StorageRead/Write/Delete; el check exige Storage Insights heredado.
+	File: /main.tf:40-45
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-logging-policies/ensure-storage-logging-is-enabled-for-blob-service-for-read-requests
+Check: CKV2_AZURE_1: "Ensure storage for critical data are encrypted with Customer Managed Key"
+	SKIPPED for resource: azurerm_storage_account.app
+	Suppress comment: Cifrado administrado por Microsoft; CMK fuera del alcance académico.
+	File: /main.tf:13-39
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/ensure-storage-for-critical-data-are-encrypted-with-customer-managed-key
+

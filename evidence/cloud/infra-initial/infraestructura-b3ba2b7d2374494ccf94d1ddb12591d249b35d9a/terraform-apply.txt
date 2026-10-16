@@ -1,0 +1,32 @@
+Acquiring state lock. This may take a few moments...
+azurerm_user_assigned_identity.runtime: Modifying... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-runtime-hpl-dev-a7d0f782]
+azurerm_service_plan.app: Modifying... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Web/serverFarms/plan-hpl-dev-a7d0f782]
+azurerm_log_analytics_workspace.app: Modifying... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.OperationalInsights/workspaces/log-hpl-dev-a7d0f782]
+azurerm_storage_account.app: Modifying... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Storage/storageAccounts/sthplappa7d0f782dev]
+azurerm_user_assigned_identity.runtime: Modifications complete after 3s [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.ManagedIdentity/userAssignedIdentities/id-runtime-hpl-dev-a7d0f782]
+azurerm_service_plan.app: Still modifying... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-....Web/serverFarms/plan-hpl-dev-a7d0f782, 00m10s elapsed]
+azurerm_log_analytics_workspace.app: Still modifying... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-...sights/workspaces/log-hpl-dev-a7d0f782, 00m10s elapsed]
+azurerm_storage_account.app: Still modifying... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-...ge/storageAccounts/sthplappa7d0f782dev, 00m10s elapsed]
+azurerm_service_plan.app: Modifications complete after 13s [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Web/serverFarms/plan-hpl-dev-a7d0f782]
+azurerm_storage_account.app: Modifications complete after 15s [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Storage/storageAccounts/sthplappa7d0f782dev]
+azurerm_log_analytics_workspace.app: Still modifying... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-...sights/workspaces/log-hpl-dev-a7d0f782, 00m20s elapsed]
+azurerm_log_analytics_workspace.app: Modifications complete after 22s [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.OperationalInsights/workspaces/log-hpl-dev-a7d0f782]
+azurerm_application_insights.app: Modifying... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Insights/components/appi-hpl-dev-a7d0f782]
+azurerm_application_insights.app: Modifications complete after 4s [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Insights/components/appi-hpl-dev-a7d0f782]
+azurerm_function_app_flex_consumption.app: Modifying... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Web/sites/func-hpl-dev-a7d0f782]
+azurerm_function_app_flex_consumption.app: Still modifying... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-...rosoft.Web/sites/func-hpl-dev-a7d0f782, 00m10s elapsed]
+azurerm_function_app_flex_consumption.app: Still modifying... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-...rosoft.Web/sites/func-hpl-dev-a7d0f782, 00m20s elapsed]
+azurerm_function_app_flex_consumption.app: Still modifying... [id=/subscriptions/cc5f9f5f-78b3-416f-adad-...rosoft.Web/sites/func-hpl-dev-a7d0f782, 00m30s elapsed]
+azurerm_function_app_flex_consumption.app: Modifications complete after 31s [id=/subscriptions/cc5f9f5f-78b3-416f-adad-6a2f27d87a83/resourceGroups/rg-hpl-parcial-dev/providers/Microsoft.Web/sites/func-hpl-dev-a7d0f782]
+Releasing state lock. This may take a few moments...
+
+Apply complete! Resources: 0 added, 6 changed, 0 destroyed.
+
+Outputs:
+
+application_insights_name = "appi-hpl-dev-a7d0f782"
+base_url = "https://func-hpl-dev-a7d0f782.azurewebsites.net"
+function_app_name = "func-hpl-dev-a7d0f782"
+function_url = "https://func-hpl-dev-a7d0f782.azurewebsites.net/api/saludo"
+health_url = "https://func-hpl-dev-a7d0f782.azurewebsites.net/api/health"
+resource_group_name = "rg-hpl-parcial-dev"

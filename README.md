@@ -6,6 +6,7 @@ La API responde en JSON y texto, valida solicitudes y muestra su versión y comm
 
 - [Repositorio](https://github.com/IsaacDev2024/hugo-paco-luis-serverless)
 - [Ejecuciones y evidencias de CI/CD](https://github.com/IsaacDev2024/hugo-paco-luis-serverless/actions)
+- [Aplicación publicada](https://func-hpl-dev-a7d0f782.azurewebsites.net/) · [Salud y versión](https://func-hpl-dev-a7d0f782.azurewebsites.net/api/health).
 - URL publicada y resultados verificados: [evidence/status.json](evidence/status.json).
 - Cobertura de la evaluación: [docs/rubrica.md](docs/rubrica.md).
 - Decisiones, excepciones y mejoras: [docs/decisiones.md](docs/decisiones.md).
@@ -44,7 +45,7 @@ No se usa Docker ni Ansible: el taller 4 publica un paquete Python en un servici
 Sustituir `BASE_URL` por el valor publicado en `evidence/status.json` o `terraform -chdir=infra output -raw base_url`.
 
 ```bash
-export BASE_URL='https://nombre-real.azurewebsites.net'
+export BASE_URL='https://func-hpl-dev-a7d0f782.azurewebsites.net'
 curl --fail-with-body "$BASE_URL/api/health"
 curl --fail-with-body "$BASE_URL/api/equipo"
 curl --fail-with-body "$BASE_URL/api/saludo?nombre=UTB&personaje=hugo"
