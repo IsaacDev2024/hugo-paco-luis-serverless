@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-16T05:59:39.261738+00:00",
+  "updated_at": "2026-10-16T06:25:40.944020+00:00",
   "repository": "https://github.com/IsaacDev2024/hugo-paco-luis-serverless",
   "workshop": 4,
   "cloud_deployed": true,
@@ -55,6 +55,15 @@
       "conclusion": "success",
       "http_checks": 8,
       "change": "demonstration=infra-demo-verified; se vuelve a ejecutar el recurso lógico de configuración tras la actualización de Function App"
+    },
+    {
+      "label": "final-validation",
+      "run_id": 38860735304,
+      "url": "https://github.com/IsaacDev2024/hugo-paco-luis-serverless/actions/runs/38860735304",
+      "conclusion": "success",
+      "version": "1.1.1",
+      "http_checks": 8,
+      "change": "Verificación completa: validación, plan/apply, publicación y SHA recibido por HTTP."
     }
   ],
   "base_url": "https://func-hpl-dev-a7d0f782.azurewebsites.net",
@@ -62,7 +71,7 @@
   "function_url": "https://func-hpl-dev-a7d0f782.azurewebsites.net/api/saludo",
   "health_url": "https://func-hpl-dev-a7d0f782.azurewebsites.net/api/health",
   "deployed_version": "1.1.1",
-  "deployed_commit": "88a747f6b9b8068a309a63fb23e323ab087cfa07",
+  "deployed_commit": "15cc972e7a95f1428e8d47fddfe838a96a6157e9",
   "location": "canadacentral",
   "destruction_performed": false,
   "demonstrations": {
@@ -94,5 +103,6 @@
     "IsaacDev2024",
     "sorejuela",
     "Code-LuisDiaz"
-  ]
+  ],
+  "latest_successful_deployment": "https://github.com/IsaacDev2024/hugo-paco-luis-serverless/actions/runs/38860735304"
 }

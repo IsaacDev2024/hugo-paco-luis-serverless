@@ -8,7 +8,7 @@
 - `cloud/infra-change/`: cambio de tags en config/lab.tfvars, repetición automática del ajuste de identidad, plan/apply y comprobación pública posteriores.
 - `cloud/storage-fix/`: ejecución completa exitosa que incorpora la corrección de AzureRM y lectura compatible del hostname.
 - `cloud/infra-initial/`: primer cambio aplicado de seis etiquetas; el run falló posteriormente al leer el hostname. Se conserva la comprobación HTTP manual exitosa de ese despliegue.
-- `cloud/final-validation/`: última validación después de documentar las evidencias, cuando esté disponible.
+- `cloud/final-validation/`: verificación completa de infraestructura, publicación y pruebas HTTP de la versión final.
 
 Cada carpeta cloud contiene run.json con URL, SHA, jobs y pasos, junto a los artefactos descargados de GitHub Actions. El reporte smoke incluye la versión y el SHA realmente recibidos por HTTP. Comparar esos valores con headSha; nunca usar el campo commit=local como prueba de despliegue.
 

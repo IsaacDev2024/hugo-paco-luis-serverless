@@ -1,0 +1,82 @@
+{
+  "SchemaVersion": 2,
+  "Trivy": {
+    "Version": "0.76.0"
+  },
+  "ReportID": "01a14360-11e4-77bb-a014-758f0aab5299",
+  "CreatedAt": "2026-10-16T06:22:11.940507695Z",
+  "ArtifactID": "sha256:ee6c727bd44089522c105a269325d309630d38be17037a43fa2289c839abb8e9",
+  "ArtifactName": ".",
+  "ArtifactType": "repository",
+  "Metadata": {
+    "RepoURL": "https://github.com/IsaacDev2024/hugo-paco-luis-serverless",
+    "Branch": "main",
+    "Commit": "15cc972e7a95f1428e8d47fddfe838a96a6157e9",
+    "CommitMsg": "docs: entrega del parcial\n\nCo-authored-by: Isaac David Sánchez Sánchez \u003c158796340+IsaacDev2024@users.noreply.github.com\u003e\nCo-authored-by: Santiago Andrés Orejuela Cueter \u003c178396316+sorejuela@users.noreply.github.com\u003e",
+    "Author": "Luis Mario Díaz Martínez \u003c183259955+Code-LuisDiaz@users.noreply.github.com\u003e",
+    "Committer": "Isaac David Sánchez Sánchez \u003c158796340+IsaacDev2024@users.noreply.github.com\u003e"
+  },
+  "Results": [
+    {
+      "Target": "app/requirements.txt",
+      "Class": "lang-pkgs",
+      "Type": "pip",
+      "Packages": [
+        {
+          "Name": "MarkupSafe",
+          "Identifier": {
+            "PURL": "pkg:pypi/markupsafe@3.0.4",
+            "UID": "e83075262a524f9d"
+          },
+          "Version": "3.0.4",
+          "Licenses": [
+            "BSD-3-Clause"
+          ],
+          "Locations": [
+            {
+              "StartLine": 3,
+              "EndLine": 3
+            }
+          ],
+          "AnalyzedBy": "pip"
+        },
+        {
+          "Name": "Werkzeug",
+          "Identifier": {
+            "PURL": "pkg:pypi/werkzeug@3.1.9",
+            "UID": "93e78b6a3716fbc1"
+          },
+          "Version": "3.1.9",
+          "Licenses": [
+            "BSD-3-Clause"
+          ],
+          "Locations": [
+            {
+              "StartLine": 2,
+              "EndLine": 2
+            }
+          ],
+          "AnalyzedBy": "pip"
+        },
+        {
+          "Name": "azure-functions",
+          "Identifier": {
+            "PURL": "pkg:pypi/azure-functions@1.24.0",
+            "UID": "593749f4161feb25"
+          },
+          "Version": "1.24.0",
+          "Licenses": [
+            "MIT"
+          ],
+          "Locations": [
+            {
+              "StartLine": 1,
+              "EndLine": 1
+            }
+          ],
+          "AnalyzedBy": "pip"
+        }
+      ]
+    }
+  ]
+}

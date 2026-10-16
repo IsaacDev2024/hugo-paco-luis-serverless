@@ -1,0 +1,7 @@
+tests/security.tftest.hcl... in progress
+  run "secure_lab_defaults"... pass
+  run "reject_excessive_scale"... pass
+tests/security.tftest.hcl... tearing down
+tests/security.tftest.hcl... pass
+
+Success! 2 passed, 0 failed.

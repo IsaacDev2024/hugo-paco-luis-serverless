@@ -1,0 +1,32 @@
+{
+  "application_insights_name": {
+    "sensitive": false,
+    "type": "string",
+    "value": "appi-hpl-dev-a7d0f782"
+  },
+  "base_url": {
+    "sensitive": false,
+    "type": "string",
+    "value": "https://func-hpl-dev-a7d0f782.azurewebsites.net"
+  },
+  "function_app_name": {
+    "sensitive": false,
+    "type": "string",
+    "value": "func-hpl-dev-a7d0f782"
+  },
+  "function_url": {
+    "sensitive": false,
+    "type": "string",
+    "value": "https://func-hpl-dev-a7d0f782.azurewebsites.net/api/saludo"
+  },
+  "health_url": {
+    "sensitive": false,
+    "type": "string",
+    "value": "https://func-hpl-dev-a7d0f782.azurewebsites.net/api/health"
+  },
+  "resource_group_name": {
+    "sensitive": false,
+    "type": "string",
+    "value": "rg-hpl-parcial-dev"
+  }
+}
