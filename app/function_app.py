@@ -83,7 +83,7 @@ def greet(req: func.HttpRequest) -> func.HttpResponse:
     if output not in ("json", "texto"):
         return response({"error": "formato debe ser json o texto", "request_id": request_id}, 400)
     character = CHARACTERS[character.lower()]
-    message = f"¡Hola, {name.strip()}! Soy {character}. {RELEASE['message']}"
+    message = f"¡Hola, {name.strip()}! {character} al mando. {RELEASE['message']}"
     # Solo identificador y resultado; nunca nombre, cuerpo ni credenciales.
     logging.info("greeting_success request_id=%s version=%s", request_id, RELEASE["version"])
     if output == "texto":
