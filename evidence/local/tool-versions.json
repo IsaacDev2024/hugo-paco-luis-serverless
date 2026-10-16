@@ -1,0 +1,9 @@
+{
+  "python": "3.11",
+  "terraform": "1.16.6",
+  "azurerm": "4.81.0",
+  "checkov": "3.3.29",
+  "trivy": "0.76.0",
+  "actionlint": "1.7.12",
+  "date": "2026-10-16"
+}

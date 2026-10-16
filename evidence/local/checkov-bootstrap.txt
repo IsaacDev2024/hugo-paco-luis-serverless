@@ -80,16 +80,16 @@ Check: CKV_AZURE_206: "Ensure that Storage Accounts use replication"
 	Suppress comment: LRS con versionado y recuperación de siete días para estado de laboratorio.
 	File: /main.tf:40-65
 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/azr-general-206
-Check: CKV2_AZURE_1: "Ensure storage for critical data are encrypted with Customer Managed Key"
-	SKIPPED for resource: azurerm_storage_account.state
-	Suppress comment: Cifrado administrado por Microsoft; CMK fuera del alcance académico.
-	File: /main.tf:40-65
-	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/ensure-storage-for-critical-data-are-encrypted-with-customer-managed-key
 Check: CKV2_AZURE_33: "Ensure storage account is configured with private endpoint"
 	SKIPPED for resource: azurerm_storage_account.state
 	Suppress comment: Endpoint público con Entra ID para laboratorio; sin blobs anónimos.
 	File: /main.tf:40-65
 	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/bc-azure-2-33
+Check: CKV2_AZURE_1: "Ensure storage for critical data are encrypted with Customer Managed Key"
+	SKIPPED for resource: azurerm_storage_account.state
+	Suppress comment: Cifrado administrado por Microsoft; CMK fuera del alcance académico.
+	File: /main.tf:40-65
+	Guide: https://docs.prismacloud.io/en/enterprise-edition/policy-reference/azure-policies/azure-general-policies/ensure-storage-for-critical-data-are-encrypted-with-customer-managed-key
 Check: CKV2_AZURE_21: "Ensure Storage logging is enabled for Blob service for read requests"
 	SKIPPED for resource: azurerm_storage_container.state
 	Suppress comment: Backend de laboratorio sin lectura de negocio; historial mediante versionado y logs de CI.
