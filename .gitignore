@@ -1,0 +1,17 @@
+.DS_Store
+.venv/
+__pycache__/
+.pytest_cache/
+*.pyc
+.terraform/
+*.tfstate*
+*.tfplan
+*.tfvars
+!*.tfvars.example
+!config/lab.tfvars
+backend.hcl
+local.settings.json
+.env*
+dist/
+tmp/
+.python_packages/
