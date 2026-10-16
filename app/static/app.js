@@ -7,10 +7,8 @@ async function loadHealth() {
     if (!res.ok) throw new Error("Health check fallido");
     const data = await res.json();
     document.getElementById("health").textContent = `API disponible · ${data.environment}`;
-    document.getElementById("release").textContent = `v${data.version} · ${data.commit.slice(0, 7)}`;
   } catch {
     document.getElementById("health").textContent = "API sin conexión";
-    document.getElementById("release").textContent = "Versión no disponible";
   }
 }
 form.addEventListener("submit", async (event) => {

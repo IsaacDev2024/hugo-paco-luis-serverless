@@ -33,7 +33,7 @@ def response(body, status=200, mimetype="application/json"):
     })
 
 
-@app.route(route="", methods=["GET"])
+@app.route(route="/", methods=["GET"])
 def home(req: func.HttpRequest) -> func.HttpResponse:
     return response((ROOT / "static/index.html").read_text(encoding="utf-8"), mimetype="text/html")
 

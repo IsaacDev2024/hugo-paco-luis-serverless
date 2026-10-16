@@ -18,7 +18,7 @@ def call(base, path, body=None):
         return exc.code, exc.headers.get("Content-Type", ""), exc.read().decode()
 
 
-def verify(base, commit=None, version=None):
+def verify(base, commit=None, version=None, portal_path="/"):
     status, _, body = call(base, "/api/health")
     data = json.loads(body)
     assert status == 200 and data["status"] == "ok", "Health fallido"
@@ -41,9 +41,9 @@ def verify(base, commit=None, version=None):
     status, _, body = call(base, "/api/equipo")
     assert status == 200 and len(json.loads(body)["members"]) == 4
     checks.append({"endpoint": "/api/equipo", "status": status})
-    status, content_type, body = call(base, "/")
+    status, content_type, body = call(base, portal_path)
     assert status == 200 and "text/html" in content_type and "Hugo" in body
-    checks.append({"endpoint": "/", "status": status})
+    checks.append({"endpoint": portal_path, "status": status})
     return checks
 
 
@@ -52,12 +52,13 @@ if __name__ == "__main__":
     parser.add_argument("base_url")
     parser.add_argument("--commit")
     parser.add_argument("--version")
+    parser.add_argument("--portal-path", default="/")
     parser.add_argument("--output", default="evidence/smoke.json")
     args = parser.parse_args()
     last_error = None
     for attempt in range(12):
         try:
-            checks = verify(args.base_url, args.commit, args.version)
+            checks = verify(args.base_url, args.commit, args.version, args.portal_path)
             break
         except (AssertionError, ValueError, KeyError, OSError) as exc:
             last_error = exc

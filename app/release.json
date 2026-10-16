@@ -1,1 +1,5 @@
-{"version": "1.0.0", "message": "¡Misión serverless lista con Hugo, Paco y Luis!", "commit": "local"}
+{
+  "version": "1.1.0",
+  "message": "¡Hugo, Paco y Luis: misión CI/CD completada!",
+  "commit": "local"
+}

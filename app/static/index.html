@@ -1,10 +1,8 @@
 <!doctype html>
 <html lang="es">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Laboratorio de una API serverless en Azure Functions. Hugo, Paco y Luis · UTB."><title>Hugo, Paco y Luis · Misión serverless</title><link rel="stylesheet" href="/assets/style.css"><script src="/assets/app.js" defer></script></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Laboratorio de una API serverless en Azure Functions. Hugo, Paco y Luis · UTB."><title>Hugo, Paco y Luis · Laboratorio</title><link rel="stylesheet" href="/assets/style.css"><script src="/assets/app.js" defer></script></head>
 <body>
-<header><a class="brand" href="/" aria-label="Inicio"><span class="dots"><i></i><i></i><i></i></span> HPL<span class="muted"> / INFRA LAB</span></a><span class="course">UTB · SEGUNDO PARCIAL</span></header>
 <main>
-<section class="hero"><div class="eyebrow">TALLER 04 <span>AZURE FUNCTIONS</span></div><h1>Tres mentes.<br>Una misión <em>serverless.</em></h1><p class="intro">Hugo, Paco y Luis aterrizan en la nube. Envía una solicitud, conoce la respuesta y descubre la infraestructura que lo hace posible.</p><div class="pills"><span>Terraform</span><span>GitHub Actions</span><span>Python</span><span>OIDC</span></div></section>
 <section class="lab" aria-labelledby="lab-title"><div class="lab-head"><div><p class="eyebrow">EL LABORATORIO</p><h2 id="lab-title">Lanza tu primera misión.</h2></div><span id="health" class="status" role="status">Consultando API…</span></div>
 <div class="workspace"><form id="greeting-form"><fieldset><legend>01 / ELIGE TU COMPAÑERO</legend><div class="characters">
 <label class="character hugo"><input type="radio" name="personaje" value="hugo" checked><span class="duck"><span class="cap"></span><span class="eyes">••</span><span class="beak"></span></span><strong>Hugo</strong><small>El estratega</small></label>
@@ -14,7 +12,6 @@
 <div class="terminal"><div class="terminal-head"><span><i></i><i></i><i></i></span><span>RESPUESTA HTTP</span></div><p class="request">POST /api/saludo</p><div class="response-meta"><span id="http-status">ESPERANDO SOLICITUD</span><span id="duration">—</span></div><pre id="response" role="status" aria-live="polite">Tu próxima respuesta comienza aquí.
 
 Elige un compañero y envía tu misión.</pre></div></div></section>
-<section class="architecture"><div><p class="eyebrow">BAJO EL CAPÓ</p><h2>Pequeña API.<br>Infraestructura reproducible.</h2><p>El código viaja de GitHub a Azure con pruebas y controles de seguridad. La identidad federada evita guardar claves de despliegue.</p></div><ol><li><b>01</b><div><strong>Código y validación</strong><span>Pruebas · Checkov · Trivy</span></div></li><li><b>02</b><div><strong>Despliegue con identidad</strong><span>GitHub Actions · OIDC · Terraform</span></div></li><li><b>03</b><div><strong>Ejecución bajo demanda</strong><span>Functions Flex · Storage · Application Insights</span></div></li></ol></section>
 <section class="team"><p class="eyebrow">HUGO, PACO Y LUIS / EL EQUIPO</p><p>Isaac David Sánchez Sánchez <span>·</span> Santiago Andrés Orejuela Cueter <span>·</span> Luis Mario Díaz Martínez <span>·</span> Eli Weiman Amaya</p></section>
-</main><footer><span>Infraestructura para TI · Universidad Tecnológica de Bolívar</span><span id="release">Versión: consultando…</span></footer>
+</main>
 </body></html>
