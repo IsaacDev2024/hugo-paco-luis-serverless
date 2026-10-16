@@ -1,0 +1,28 @@
+{
+  "updated_at": "2026-10-16T05:21:07.302542+00:00",
+  "repository": "https://github.com/IsaacDev2024/hugo-paco-luis-serverless",
+  "workshop": 4,
+  "cloud_deployed": false,
+  "status": "deployment_in_progress",
+  "local": {
+    "api_tests": 21,
+    "terraform_tests": 2,
+    "preview_http_checks": 8,
+    "checkov": {
+      "infra_passed": 13,
+      "infra_failed": 0,
+      "infra_skipped": 10,
+      "bootstrap_passed": 11,
+      "bootstrap_failed": 0,
+      "bootstrap_skipped": 8
+    },
+    "trivy_high_critical": 0,
+    "trivy_secrets": 0
+  },
+  "collaborators": {
+    "IsaacDev2024": "owner",
+    "sorejuela": "invited_write",
+    "Code-LuisDiaz": "invited_write"
+  },
+  "cloud_evidence": []
+}

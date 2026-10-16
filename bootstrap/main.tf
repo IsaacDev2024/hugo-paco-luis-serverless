@@ -83,13 +83,12 @@ resource "azurerm_user_assigned_identity" "github" {
   tags                = local.tags
 }
 resource "azurerm_federated_identity_credential" "github" {
-  for_each            = azurerm_user_assigned_identity.github
-  name                = "github-main"
-  resource_group_name = azurerm_resource_group.state.name
-  parent_id           = each.value.id
-  audience            = ["api://AzureADTokenExchange"]
-  issuer              = "https://token.actions.githubusercontent.com"
-  subject             = "repo:${var.github_repository}:ref:refs/heads/main"
+  for_each  = azurerm_user_assigned_identity.github
+  name      = "github-main"
+  parent_id = each.value.id
+  audience  = ["api://AzureADTokenExchange"]
+  issuer    = "https://token.actions.githubusercontent.com"
+  subject   = "repo:${var.github_repository}:ref:refs/heads/main"
 }
 resource "azurerm_role_assignment" "infra" {
   for_each             = toset(["Contributor", "Role Based Access Control Administrator", "Storage Blob Data Contributor"])

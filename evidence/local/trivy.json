@@ -1,0 +1,73 @@
+{
+  "SchemaVersion": 2,
+  "Trivy": {
+    "Version": "0.76.0"
+  },
+  "ReportID": "01a14327-164f-7bee-a3ac-5a3c527dfe18",
+  "CreatedAt": "2026-10-16T00:19:57.519784-05:00",
+  "ArtifactID": "sha256:352612f0a634c5850179a6ed7796a8c80bc65aefe5a1a79393ff79ed73debb0c",
+  "ArtifactName": ".",
+  "ArtifactType": "repository",
+  "Metadata": {
+    "RepoURL": "https://github.com/IsaacDev2024/hugo-paco-luis-serverless.git",
+    "Branch": "main",
+    "Commit": "60edc816c134d0eaaae970664f2c7d010f53331b",
+    "CommitMsg": "ci: validar, publicar y documentar el taller 4\n\nCo-authored-by: Isaac David Sánchez Sánchez \u003c158796340+IsaacDev2024@users.noreply.github.com\u003e\nCo-authored-by: Santiago Andrés Orejuela Cueter \u003c178396316+sorejuela@users.noreply.github.com\u003e",
+    "Author": "Luis Mario Díaz Martínez \u003c183259955+Code-LuisDiaz@users.noreply.github.com\u003e",
+    "Committer": "Isaac David Sánchez Sánchez \u003c158796340+IsaacDev2024@users.noreply.github.com\u003e"
+  },
+  "Results": [
+    {
+      "Target": "app/requirements.txt",
+      "Class": "lang-pkgs",
+      "Type": "pip",
+      "Packages": [
+        {
+          "Name": "MarkupSafe",
+          "Identifier": {
+            "PURL": "pkg:pypi/markupsafe@3.0.4",
+            "UID": "e42d88e978b21535"
+          },
+          "Version": "3.0.4",
+          "Locations": [
+            {
+              "StartLine": 3,
+              "EndLine": 3
+            }
+          ],
+          "AnalyzedBy": "pip"
+        },
+        {
+          "Name": "Werkzeug",
+          "Identifier": {
+            "PURL": "pkg:pypi/werkzeug@3.1.9",
+            "UID": "7463f39f1574cfd6"
+          },
+          "Version": "3.1.9",
+          "Locations": [
+            {
+              "StartLine": 2,
+              "EndLine": 2
+            }
+          ],
+          "AnalyzedBy": "pip"
+        },
+        {
+          "Name": "azure-functions",
+          "Identifier": {
+            "PURL": "pkg:pypi/azure-functions@1.24.0",
+            "UID": "ceac935f7ae825d8"
+          },
+          "Version": "1.24.0",
+          "Locations": [
+            {
+              "StartLine": 1,
+              "EndLine": 1
+            }
+          ],
+          "AnalyzedBy": "pip"
+        }
+      ]
+    }
+  ]
+}
